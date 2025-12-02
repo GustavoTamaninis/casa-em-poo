@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu da Casa</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/validacoes.js"></script>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Gerenciamento da Casa</h1>
+        <p>Escolha uma ação:</p>
+
+        <form id="menuForm" action="processa.php" method="post">
+            <button type="submit" name="acao" value="construir">Construir Casa</button>
+            <button type="submit" name="acao" value="movimentar">Movimentar Portas e Janelas</button>
+            <button type="submit" name="acao" value="ver_info">Ver Informações da Casa</button>
+        </form>
+    </div>
+</body>
+</html>
