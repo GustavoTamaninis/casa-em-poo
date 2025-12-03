@@ -51,5 +51,42 @@
                 return [];
             }
         }
+
+        public function retornaAbertura(string $tipo, int $indice): ?Aberturas{
+            $lista = $this->getAberturasPorTipo($tipo);
+            return $lista[$indice] ?? null;
+        }
+
+        public function moverAbertura(Aberturas $abertura, int $novoEstado): void{
+            $abertura->setEstado($novoEstado);
+        }
+
+        public function geraInfoCasa(): string{
+            $info = "<h2>🏠 Informações da Casa</h2>";
+            $info .= "<h2>🏠 Informações da Casa</h2>";
+            $info .= "<p><strong>Cor:</strong> {$this->cor}</p>";
+
+            $info .= "<h3>Portas:</h3>";
+            if(!empty($this->listaDePortas)){
+                foreach($this->listaDePortas as $porta){
+                    $estado = $porta->getEstadoTexto();
+                    $info .= "<p>{$porta->getDescricao()} - {$estado}</p>";
+                }
+            }else{
+                $info .= "<p>Nenhuma porta cadastrada.</p>";
+            }
+
+            $info .= "<h3>Janelas:</h3>";
+            if(!empty($this->listaDeJanelas)){
+                foreach($this->listaDeJanelas as $janela){
+                    $estado = $janela->getEstadoTexto();
+                    $info .= "<p>{$porta->getDescricao()} - {$estado}</p>";
+                }
+            }else{
+                $info .= "<p>Nenhuma janela cadastrada.</p>";
+            }
+
+            return $info;
+        }
     }
 ?>
