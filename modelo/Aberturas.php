@@ -28,7 +28,7 @@
             $this->estado = 0;
         }
 
-        public function getEstadoText(): string{
+        public function getEstadoTexto(): string{
             return $this->estado === 1? "aberta" : "fechada";
         }
     }
