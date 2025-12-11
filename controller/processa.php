@@ -1,8 +1,8 @@
 <?php 
     session_start();
-    require_once "../modelo/Casa.php";
-    require_once "../modelo/Porta.php";
-    require_once "../modelo/Janela.php";
+    require_once "../model/Casa.php";
+    require_once "../model/Porta.php";
+    require_once "../model/Janela.php";
 
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $acao = $_POST["acao"] ?? "";
