@@ -1,8 +1,8 @@
 <?php 
     session_start();
-    require_once "modelo/Casa.php";
-    require_once "modelo/Porta.php";
-    require_once "modelo/Janela.php";
+    require_once "../modelo/Casa.php";
+    require_once "../modelo/Porta.php";
+    require_once "../modelo/Janela.php";
 
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $acao = $_POST["acao"] ?? "";
@@ -126,13 +126,13 @@
                     echo "<p>{$janela->getDescricao()} - {$estado}</p>";
                 }
 
-                echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                 break;
 
             case "movimentar":
                 if(!isset($_SESSION['casa'])){
                     echo "<h2>⚠️ Nenhuma casa foi construída ainda!</h2>";
-                    echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                    echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                     exit;
                 }
 
@@ -147,7 +147,7 @@
                         <button type="submit" name="tipo_abertura" value="janela">Mover Janela</button>
                     </form>
                     ';
-                echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                 break;
             case 'selecionar_abertura':
                 $casa = unserialize($_SESSION['casa']);
@@ -157,7 +157,7 @@
 
                 if(empty($lista)){
                     echo "<h2>⚠️ Nenhuma " . ($tipo === 'porta' ? "porta" : "janela") . " cadastrada!</h2>";
-                    echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                    echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                     exit;
                 }
 
@@ -173,7 +173,7 @@
                 echo "<select><br><br>";
                 echo "<button type='submit'>Avançar</button>";
                 echo "</form>";
-                echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                 break;
             case 'mover_abertura':
                 $casa = unserialize($_SESSION['casa']);
@@ -183,7 +183,7 @@
                 $abertura = $casa->retornaAbertura($tipo, $posicao);
                 if(!$abertura){
                     echo "<h2>❌ Abertura Inválida.</h2>";
-                    echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                    echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                     exit;
                 }
 
@@ -201,7 +201,7 @@
                 echo "</select><br><br>";
                 echo "<button type='submit'>Aplicar</button>";
                 echo "</form>";
-                echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                 break;
             case 'aplicar_movimento':
                 $casa = unserialize($_SESSION['casa']);
@@ -221,7 +221,7 @@
                     echo "<h2>❌ Erro ao movimentar abertura.</h2>";
                 }
 
-                echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                 break;
             case 'selecionar_tipo_abertura':
                 $tipo = $_POST['tipo_abertura'] ?? '';
@@ -234,7 +234,7 @@
             case 'ver_info':
                 if(!isset($_SESSION['casa'])){
                     echo "<h2>⚠️ Nenhuma casa foi construída ainda!</h2>";
-                    echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
+                    echo "<br><a href='../view/index.html'>⬅️Voltar ao menu</a>";
                     break;
                 }
 
@@ -245,7 +245,7 @@
                         <br><form action='processa.php' method='POST'>
                         <button type='submit' name='acao' value='limpar_sessao'>🧹 Nova Construção</button>
                         </form>
-                        <br><a href='index.html'>⬅️Voltar ao menu</a>;
+                        <br><a href='../view/index.html'>⬅️Voltar ao menu</a>;
                      ";
                 break;
             case 'limpar_sessao':
@@ -253,15 +253,15 @@
                 session_destroy();
                 echo "<h2>🧹 Dados da casa apagados!</h2>";
                 echo "<p>Você pode construir uma nova casa agora.</p>";
-                echo "<a href='index.html'>⬅️Voltar ao menu inicial.</a>";
+                echo "<a href='../view/index.html'>⬅️Voltar ao menu inicial.</a>";
                 break;
             default:
                 echo "<h2>❌ Ação inválida.</h2>";
-                echo "<a href='index.html'>⬅️Voltar ao menu.</a>";
+                echo "<a href='../view/index.html'>⬅️Voltar ao menu.</a>";
                 break;
         }
     }else{
         echo "<h2>⚠️ Nenhuma ação recebida.</h2>";
-        echo "<a href='index.html'>⬅️Voltar ao menu.</a>";
+        echo "<a href='../view/index.html'>⬅️Voltar ao menu.</a>";
     }
 ?>
