@@ -74,6 +74,7 @@
                 }
             }else{
                 $info .= "<p>Nenhuma porta cadastrada.</p>";
+                echo "<br><a href='index.html'>⬅️Voltar ao menu</a>";
             }
 
             $info .= "<h3>Janelas:</h3>";
