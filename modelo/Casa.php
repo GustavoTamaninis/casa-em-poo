@@ -63,7 +63,7 @@
 
         public function geraInfoCasa(): string{
             $info = "<h2>🏠 Informações da Casa</h2>";
-            $info .= "<h2>🏠 Informações da Casa</h2>";
+            $info .= "<p><strong>Descrição:</strong> {$this->descricao}</p>";
             $info .= "<p><strong>Cor:</strong> {$this->cor}</p>";
 
             $info .= "<h3>Portas:</h3>";
